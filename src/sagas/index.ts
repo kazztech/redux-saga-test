@@ -8,7 +8,7 @@ import {
   createUserFeilure,
 } from "../actions";
 import { db, rsf, User } from "../firestore";
-import { FETCH_USERS, CREATE_USER } from "../constance";
+import { FETCH_USERS, CREATE_USER } from "../constants";
 
 export function* fetchUsersSaga() {
   const docs = yield call(rsf.firestore.getCollection, db.collection("users"));

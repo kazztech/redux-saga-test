@@ -16,10 +16,9 @@ const App: React.FC<AppProps> = (props) => {
   useEffect(() => {
     props.dispatchFetchUsers();
   }, []);
-
   return (
     <div className="App">
-      {props.isLoading && <div>Loading</div>}
+      {props.isLoading && <div>Loading...</div>}
       <div>
         <h3>Add user</h3>
         Name:
@@ -59,12 +58,12 @@ const App: React.FC<AppProps> = (props) => {
   );
 };
 
-function mapStateToProps(state: State) {
+function mapStateToProps(state: any): State {
   return {
-    users: state.users,
-    isLoading: state.isLoading,
-    isError: state.isError,
-    errorMessage: state.errorMessage,
+    users: state.get("users"),
+    isLoading: state.get("isLoading"),
+    isError: state.get("isError"),
+    errorMessage: state.get("errorMessage"),
   };
 }
 

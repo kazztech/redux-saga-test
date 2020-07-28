@@ -5,7 +5,7 @@ import {
   CREATE_USER,
   CREATE_USER_SUCCESS,
   CREATE_USER_FAILURE,
-} from "../constance";
+} from "../constants";
 import { User } from "../firestore";
 
 // FETCH
