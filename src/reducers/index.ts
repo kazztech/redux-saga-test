@@ -37,6 +37,7 @@ export const usersReducer: Reducer<State> = (
       };
     case FETCH_USERS_SUCCESS:
       return {
+        ...state,
         users: action.payload,
         isLoading: false,
         isError: false,
@@ -57,6 +58,7 @@ export const usersReducer: Reducer<State> = (
       };
     case CREATE_USER_SUCCESS:
       return {
+        ...state,
         users: [...state.users, action.payload],
         isLoading: false,
         isError: false,
