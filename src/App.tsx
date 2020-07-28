@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
+
 import { State } from "./reducers";
 import { fetchUsers, createUser } from "./actions";
+import { User } from "./firestore";
 
 type AppProps = {} & ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps>;
@@ -18,8 +20,6 @@ const App: React.FC<AppProps> = (props) => {
   return (
     <div className="App">
       {props.isLoading && <div>Loading</div>}
-      {props.isError && <div>{props.errorMessage}</div>}
-
       <div>
         <h3>Add user</h3>
         Name:
@@ -48,6 +48,7 @@ const App: React.FC<AppProps> = (props) => {
       </div>
       <div>
         <h3>Users</h3>
+        {props.isError && <div>{props.errorMessage}</div>}
         {props.users.map((user, index) => (
           <div key={index}>
             <div>{`${user.name} (${user.age}`})</div>
@@ -70,7 +71,7 @@ function mapStateToProps(state: State) {
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
     dispatchFetchUsers: () => dispatch(fetchUsers()),
-    dispatchCreateUser: (user: any) => dispatch(createUser(user)),
+    dispatchCreateUser: (user: User) => dispatch(createUser(user)),
   };
 }
 

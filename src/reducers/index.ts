@@ -1,3 +1,5 @@
+import { Reducer } from "redux";
+
 import {
   FETCH_USERS,
   FETCH_USERS_SUCCESS,
@@ -6,7 +8,6 @@ import {
   FETCH_USERS_FAILURE,
   CREATE_USER_FAILURE,
 } from "../constance";
-import { Reducer } from "redux";
 import { User } from "../firestore";
 
 export type State = {

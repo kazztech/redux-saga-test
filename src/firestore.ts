@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import ReduxSagaFirebase from "redux-saga-firebase";
 import "firebase/firestore";
+
 import { firebaseConfig } from "./firebaseConfig";
 
 const fb = firebase.initializeApp(firebaseConfig);
