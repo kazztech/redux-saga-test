@@ -1,5 +1,5 @@
 {
-  "name": "redux-firestore-counter",
+  "name": "redux-saga-test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
